@@ -9,7 +9,7 @@ public class CameraControl : MonoBehaviour
     [SerializeField] private Transform player;
 
 
-    private void update()
+    private void Update()
     {
        
        // transform.position = Vector3.SmoothDamp(transform.position, new Vector3(currentPosX, transform.position.y, transform.position.z), ref velocity, speed);

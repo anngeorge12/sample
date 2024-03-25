@@ -3829,7 +3829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16d17b3aeccd9f948a4bf838014c4f3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 8
   jumpPower: 20
   groundLayer:
     serializedVersion: 2
