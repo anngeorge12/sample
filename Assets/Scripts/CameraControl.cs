@@ -21,7 +21,7 @@ public class CameraControl : MonoBehaviour
        // transform.position = Vector3.SmoothDamp(transform.position, new Vector3(currentPosX, transform.position.y, transform.position.z), ref velocity, speed);
 
        //Follow player
-       transform.position = new Vector3(player.position.x + lookAhead, transform.position.y, transform.position.z);
+       transform.position = new Vector3(player.position.x + lookAhead, player.position.y, transform.position.z);
         //setting the intial and final value of lookahead 
         //lerp method gradually changes the lookahead value from initial to final
         //the camera will move more to the left when facing the direction
