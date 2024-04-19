@@ -12,7 +12,7 @@ public class PlayerAttack : MonoBehaviour
     private Animator anim;
     private playermovement playerMovement;
     private float coolDownTimer=Mathf.Infinity;
-    //this varuable is used to make sure that the cool down time is not 0 in the first stage
+    //this variable is used to make sure that the cool down time is not 0 in the first stage
     //therefore the player can start attacking in the intial stanz
     //this variable is to check if enough time has passed after shooting is done.
 
