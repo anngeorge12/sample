@@ -27,9 +27,9 @@ public class playermovement : MonoBehaviour
         
         // changing the players direction while moving left
         if(horizontalInput>0.01f)
-            transform.localScale = Vector3.one;
+            transform.localScale =new Vector3(1.5f,1.5f,1.0f);
         else if(horizontalInput<-0.01f)
-            transform.localScale = new Vector3(-1,1,1);
+            transform.localScale = new Vector3(-1.5f,1.5f,1.0f);
 
         //set animator parameters if zero it goes to idle state that is run is false
         //if run is true then the animator goes to its running state and becomes true

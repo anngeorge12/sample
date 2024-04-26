@@ -12,10 +12,19 @@ public class Door : MonoBehaviour
         {
             //to move the camera to the right room or the next room
             if(collision.transform.position.x < transform.position.x)
+            {
                 cam.MoveToNewRoom(nextRoom);
+                nextRoom.GetComponent<Room>().ActivateRoom(true);
+                previousRoom.GetComponent<Room>().ActivateRoom(false);
+            }
             //to move the camera to the left room or the previous room
             else
+            {
                 cam.MoveToNewRoom(previousRoom);
+                previousRoom.GetComponent<Room>().ActivateRoom(true);
+                nextRoom.GetComponent<Room>().ActivateRoom(false);
+            }
+                
         }
     }
     private void Awake()
