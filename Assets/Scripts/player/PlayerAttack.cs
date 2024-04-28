@@ -7,6 +7,7 @@ public class PlayerAttack : MonoBehaviour
     //the below one is to tell from which position the bullets will be fired.
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject[] fireballs;
+    [SerializeField] private AudioClip fireballSound;
     //this above variable allows us to decide how much time should be considered when one shoot
     // to until the next shoot.
     private Animator anim;
@@ -29,6 +30,7 @@ public class PlayerAttack : MonoBehaviour
     }
     private void Attack()
     {
+        SoundManager.instance.PlaySound(fireballSound);
         anim.SetTrigger("attack");
         coolDownTimer = 0;
 

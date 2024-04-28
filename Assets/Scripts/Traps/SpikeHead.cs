@@ -8,6 +8,8 @@ public class SpikeHead : EnemyDamage
     [SerializeField] private float range;// to see how far the spike head can see or go
     [SerializeField] private float checkDelay;
     [SerializeField] private LayerMask playerLayer;
+    [Header("SFX")]
+    [SerializeField] private AudioClip spikeSound;
     private float checkTimer;
     private Vector3[] directions = new Vector3[4];
     private Vector3 destination;//to store the players position when detected
@@ -66,6 +68,7 @@ public class SpikeHead : EnemyDamage
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        SoundManager.instance.PlaySound(spikeSound);
         base.OnTriggerEnter2D(collision);//to link with the parent script
         Stop();//spikehead stops after collision on something
     }

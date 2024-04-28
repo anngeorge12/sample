@@ -8,6 +8,8 @@ public class FireTrap : MonoBehaviour
     [Header("Firetrap Timers")]
     [SerializeField] private float activationDelay;//idicates the time taken by the trap to activate the fire trap after stepping
     [SerializeField] private float activeTime;//time take to stay active after activation
+    [Header("SFX")]
+    [SerializeField] private AudioClip fireSound;
     private Animator anim;
     private SpriteRenderer spriteRend;
 
@@ -65,6 +67,7 @@ public class FireTrap : MonoBehaviour
 
         //wait for delay,activate trap,start animation,return color back to normal
         yield return new WaitForSeconds(activationDelay);// for a time delay in activating the trap
+        SoundManager.instance.PlaySound(fireSound);
         spriteRend.color = Color.white;//turn the sprite normal 
         active = true;
         anim.SetBool("activated", true);

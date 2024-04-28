@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthValue: 1
+  healthSound: {fileID: 8300000, guid: d58b88ca6f3815a43abdf9952b1b5e4b, type: 3}
 --- !u!1 &8375702130376218742
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,3 +290,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthValue: 1
+  healthSound: {fileID: 0}

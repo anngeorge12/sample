@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: 95f9bd86b0183ae438b4fb250c57300d
+guid: d86493c51d35be346870f7cd7ad351b7
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - boxCollider: {instanceID: 0}
-  - attackSound: {fileID: 8300000, guid: ed4ed91276c1108448e3382bc39bae62, type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -12,6 +12,9 @@ public class Wizard : MonoBehaviour
     [Header ("Player Layer")]
     [SerializeField] private LayerMask playerLayer;
     private float cooldownTimer = Mathf.Infinity;
+    [Header("Attack Sound")]
+    [SerializeField] private AudioClip attackSound;
+
 
     private Animator anim;
 
@@ -37,11 +40,12 @@ public class Wizard : MonoBehaviour
         //attack only if player in sight
         if(PlayerInSight())
         {
-            if(cooldownTimer >= attackCooldown)
+            if(cooldownTimer >= attackCooldown && playerHealth.currentHealth > 0)
             {
             //attack
             cooldownTimer = 0;
             anim.SetTrigger("attack");
+            SoundManager.instance.PlaySound(attackSound);
             }
         }
         //if the player is in the red box then the enemy will attack but as soon as the player jumps out of the red box he will go back to idle state
