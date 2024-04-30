@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerRespawn : MonoBehaviour
 {
     [SerializeField] private AudioClip checkpointSound; //sound when player gets new checkpoint
-    private Transform currentCheckpoint; //hold current checkpoint
+    private Transform currentCheckpoint = null; //hold current checkpoint
     private Health playerHealth;
 
     private void Awake()
