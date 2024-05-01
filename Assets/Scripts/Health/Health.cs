@@ -46,10 +46,11 @@ public class Health : MonoBehaviour
             //player dead
             if(!dead)
             {
-                anim.SetTrigger("die");
+                
                 //player
                 if(GetComponent<playermovement>() != null)
                     GetComponent<playermovement>().enabled = false;
+
                 //enemy
                 anim.SetTrigger("death");
                 if (GetComponentInParent<EnemyPatrol>() != null)
@@ -59,7 +60,8 @@ public class Health : MonoBehaviour
                 if(GetComponent<Wizard>() != null)    
                     GetComponent<Wizard>().enabled = false;
 
-
+                anim.SetBool("grounded",true);
+                anim.SetTrigger("die");
 
                 dead = true;
                 SoundManager.instance.PlaySound(deathSound);
@@ -72,19 +74,19 @@ public class Health : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth + _value, 0, startinghealth);
     }
 
-    public void Respawn()
+    /*public void Respawn()
     {
         dead = false;
         AddHealth(startinghealth);
         anim.ResetTrigger("die");
         anim.Play("Idle");
-        StartCoroutine(Invulnerabilty());
+        
 
         //Activate all attached component classes
         foreach (Behaviour component in components)
             component.enabled = true;
         
-    }
+    }*/
     private IEnumerator Invulnerabilty()
     {
         invulnerable = true;

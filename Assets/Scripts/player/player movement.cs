@@ -7,17 +7,17 @@ public class playermovement : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float jumpPower;
 
-    [Header("Coyte time")]
-    [SerializeField] private float coyoteTime;
-    private float coyoteCounter;
+    [Header("Coyote time")]
+    [SerializeField] private float coyoteTime;//how much time to hang in the air
+    private float coyoteCounter;//how much time passed since player went from the edge
 
     [Header("Multiple Jumps")]
-    [SerializeField] private int extraJumps;
+    [SerializeField] private int extraJumps;//how many extra jumps to make
     private int jumpCounter;
 
-    [Header("Wall Jumps")]
-    [SerializeField] private float wallJumpX;
-    [SerializeField] private float wallJumpY;
+    [Header("Wall Jumping")]
+    [SerializeField] private float wallJumpX;//horizontal wall jump force
+    [SerializeField] private float wallJumpY;//verticle wall jump force
 
     private Rigidbody2D body;
     private Animator anim;
@@ -42,20 +42,21 @@ public class playermovement : MonoBehaviour
         // changing the players direction while moving left
         if(horizontalInput>0.01f)
             transform.localScale =new Vector3(1.5f,1.5f,1.0f);
-        else if(horizontalInput<-0.01f)
+        else if(horizontalInput< -0.01f)
             transform.localScale = new Vector3(-1.5f,1.5f,1.0f);
 
         //set animator parameters if zero it goes to idle state that is run is false
         //if run is true then the animator goes to its running state and becomes true
         anim.SetBool("run", horizontalInput != 0);
         anim.SetBool("grounded", isGrounded());
+
         //jump
         if (Input.GetKeyDown(KeyCode.Space))
             Jump();
 
         //adjustable jump height
         if (Input.GetKeyUp(KeyCode.Space) && body.velocity.y > 0)
-            body.velocity = new Vector2(body.velocity.x, body.velocity.y / 2);
+            body.velocity = new Vector2(body.velocity.x, body.velocity.y / 2);//to make the body fall once space is pressed
         if(onWall())
         {
             body.gravityScale = 0;
@@ -64,20 +65,20 @@ public class playermovement : MonoBehaviour
         else
         {
             body.gravityScale = 7;
-            body.velocity = new Vector2(horizontalInput * speed,body.velocity.y);
+            body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
 
             if (isGrounded())
             {
-                coyoteCounter = coyoteTime;
+                coyoteCounter = coyoteTime;//reset the coyote time when on ground again
                 jumpCounter = extraJumps;
             }
             else
-                coyoteCounter -= Time.deltaTime;
+                coyoteCounter -= Time.deltaTime;//decreases when not on the ground
         }
     }
     private void Jump()
     {
-        if (coyoteCounter < 0 && !onWall() && jumpCounter <=0) return;
+        if (coyoteCounter <= 0 && !onWall() && jumpCounter <=0) return;
         SoundManager.instance.PlaySound(jumpSound);
 
         if (onWall())
