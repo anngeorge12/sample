@@ -82,9 +82,8 @@ public class Health : MonoBehaviour
 
         //Activate all attached component classes
         foreach (Behaviour component in components)
-        {
             component.enabled = true;
-        }
+        
     }
     private IEnumerator Invulnerabilty()
     {
