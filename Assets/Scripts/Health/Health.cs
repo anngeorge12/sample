@@ -23,6 +23,7 @@ public class Health : MonoBehaviour
     [SerializeField] private AudioClip hurtSound;
 
     private bool invulnerable;
+    private UIManager uiManager;
     private void Awake()
     {
         currentHealth = startinghealth;
@@ -63,8 +64,10 @@ public class Health : MonoBehaviour
                 anim.SetBool("grounded",true);
                 anim.SetTrigger("die");
 
+            
                 dead = true;
                 SoundManager.instance.PlaySound(deathSound);
+
             }
             
         }
