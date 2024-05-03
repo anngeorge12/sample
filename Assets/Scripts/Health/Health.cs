@@ -29,6 +29,7 @@ public class Health : MonoBehaviour
         currentHealth = startinghealth;
         anim = GetComponent<Animator>();
         spriteRend = GetComponent<SpriteRenderer>();
+        uiManager = FindObjectOfType<UIManager>();
     }
     public void TakeDamage(float _damage)
     {
@@ -64,9 +65,9 @@ public class Health : MonoBehaviour
                 anim.SetBool("grounded",true);
                 anim.SetTrigger("die");
 
-            
                 dead = true;
                 SoundManager.instance.PlaySound(deathSound);
+                //uiManager.GameOver();
 
             }
             
