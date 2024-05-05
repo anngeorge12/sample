@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
@@ -29,7 +28,7 @@ public class SoundManager : MonoBehaviour
     }
     public void ChangeMusicVolume(float _change)
     {
-        ChangeSourceVolume(1, "musicVolume", _change, musicSource);
+        ChangeSourceVolume(0.3f, "musicVolume", _change, musicSource);
     }
 
     private void ChangeSourceVolume(float baseVolume, string volumeName, float change, AudioSource source)

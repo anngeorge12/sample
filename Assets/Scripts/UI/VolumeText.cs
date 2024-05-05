@@ -1,12 +1,13 @@
-using UnityEngine.UI;
+
 using UnityEngine;
+using UnityEngine.UI;
 
 public class VolumeText : MonoBehaviour
 {
     [SerializeField] private string volumeName;
     [SerializeField] private string textIntro; // Sound: or music
     private Text txt;
-
+    
     public void Awake()
     {
         txt = GetComponent<Text>();
@@ -19,7 +20,7 @@ public class VolumeText : MonoBehaviour
 
     public void UpdateVolume()
     {
-        float volumeValue = PlayerPrefs.GetFloat(volumeName)*100;
+        float volumeValue = PlayerPrefs.GetFloat(volumeName) * 100;
         txt.text = textIntro + volumeValue.ToString();
     }
 }
