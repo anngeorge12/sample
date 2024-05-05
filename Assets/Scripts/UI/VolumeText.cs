@@ -23,4 +23,3 @@ public class VolumeText : MonoBehaviour
         txt.text = textIntro + volumeValue.ToString();
     }
 }
-
