@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 588590bbcffaa3c4bae44f969688b86a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startinghealth: 3
+  startinghealth: 20
   iFramesDuration: 1
   numberOfFlashes: 3
   components: []
@@ -266,7 +266,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a7036ec43af83b4f80c70829c13adde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkpointSound: {fileID: 8300000, guid: 23b53b06af5d8a640883b9fa016259f1, type: 3}
 --- !u!1 &7145121713438505072
 GameObject:
   m_ObjectHideFlags: 0
