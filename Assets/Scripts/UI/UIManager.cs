@@ -39,11 +39,13 @@ public class UIManager : MonoBehaviour
    //gameover functions
    public void Restart()
    {
+       Time.timeScale = 1;
       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
    }
    public void MainMenu()
    {
-      SceneManager.LoadScene(0);
+        Time.timeScale = 1;
+        SceneManager.LoadScene(0);
    }
 
    public void Quit()
