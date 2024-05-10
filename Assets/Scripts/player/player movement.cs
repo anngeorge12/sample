@@ -1,6 +1,8 @@
 
 using System;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class playermovement : MonoBehaviour
 {
@@ -18,6 +20,8 @@ public class playermovement : MonoBehaviour
     [Header("Wall Jumping")]
     [SerializeField] private float wallJumpX;//horizontal wall jump force
     [SerializeField] private float wallJumpY;//verticle wall jump force
+    [Header("WIN")]
+    public TextMeshProUGUI WINTEXT;
 
     private Rigidbody2D body;
     private Animator anim;
@@ -125,5 +129,14 @@ public class playermovement : MonoBehaviour
     public Boolean canAttack()
     {
         return horizontalInput == 0 && isGrounded() && !onWall();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Win")
+        {
+            WINTEXT.gameObject.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 }

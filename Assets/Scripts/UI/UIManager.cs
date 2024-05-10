@@ -33,6 +33,7 @@ public class UIManager : MonoBehaviour
    {
     gameOverScreen.SetActive(true);
     SoundManager.instance.PlaySound(gameOverSound);
+    Time.timeScale = 0;
    }
 
    //gameover functions
