@@ -182,6 +182,7 @@ MonoBehaviour:
   extraJumps: 2
   wallJumpX: 1000
   wallJumpY: 750
+  WINTEXT: {fileID: 0}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
